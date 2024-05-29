@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+      
+<!-- Demo styles -->
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .bg0{
+            background-image: url(./img/banner_bg_01.jpg);
+        }
+
+        .bg1{
+            background-image: url(./img/banner_bg_02.jpg);
+        }
+
+        .bg2{
+            background-image: url(./img/banner_bg_03.jpg);
+        }
+
+        .swiper-slide{
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .swiper-pagination-bullet{
+            width: auto !important;
+            height: auto !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            opacity: 1 !important;
+        }
+        .swiper-pagination-bullet-active{
+            color: red;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <section id="mainBanner"> 
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide bg0">
+                    <span>광고 배너 타이틀</span>
+                </div>
+                <div class="swiper-slide bg1">
+                    <span>광고 배너 타이틀</span>
+                </div>
+                <div class="swiper-slide bg2">
+                    <span>광고 배너 타이틀</span>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div> <!-- 개수만큼 pagination 을 돌림 -->
+        </div>
+    </section>
+   
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+ <script>
+    
+    const bannerText = ['평강한의원 후기','한약소개','예약하기'];
+    const swiper_mainBanner = new Swiper("#mainBanner .swiper", {
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: "#mainBanner .swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+            //   return '<span class="' + className + '">' + (index + 1) + "</span>";
+            return `<span class= "${className}"> ${bannerText[index]} </span>`;
+            },
+        },
+    });
+ 
+ </script>
+</body>
+
+</html>
