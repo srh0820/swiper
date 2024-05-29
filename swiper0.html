@@ -35,7 +35,7 @@
 
         }
         #mainBanner .swiper-pagination{
-            right: 0;
+            width: auto; /* d-flex 만큼의 크기를 갖게 함 */
             bottom: 3rem;
             text-align: left;
         }
@@ -81,29 +81,38 @@
             overflow: hidden !important;
         }
 
-        .swiper-pagination-bullet::before{
+        .swiper-pagination-bullet:before{
             content: "";
             display: block;
             position: absolute;
             left: 0; right: 0;
             bottom: 0;
             height: 4px;
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255,255,255,0.5);
         }
-        .swiper-pagination-bullet::after{
+        .swiper-pagination-bullet:after{
             content: "";
             display: block;
             position: absolute;
             left: 0;
             width: 0;
             bottom: 0;
-            height: 4px;
-            background-color: rgba(204, 23, 23, 1);
+            height: 4px;      
+            background-color: rgba(255,0,0,1);
+            z-index: 1000;  
         }
+
         .swiper-pagination-bullet-active::after{
             width: 100%;
             transition: 3s;
         }
+        .btns{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 5rem;            
+        }
+
         
   </style>
 
@@ -153,22 +162,9 @@
                 </div>    
             </div>
         
-            <div class="swiper-pagination container">
-                <div class="pagination">
-                    <ul>
-                        <li class="">
-                            <button type="button" class="f18 fc_white" data-index="1">비염, 천식, 폐질환 편강한의원</button>
-                        </li>
-                        <li class="">
-                            <button type="button" class="f18 fc_white" data-index="2">편강 원인 치유법</button>
-                        </li>
-                        <li class="">
-                            <button type="button" class="f18 fc_white" data-index="3">편강의학이 세계로 갑니다</button>
-                        </li>
-                    </ul>
-                    <span class="progress">
-                        <span class="bar"></span>
-                    </span>
+            <div class="container btns d-flex"> <!-- d-flex 를 받아서 자기영역만큼 나타나게 됨 -->
+                <div class="swiper-pagination">
+                  <!-- 여기안에는 태그를 넣을 수가 없음 커스터마이징 불가 -->
                 </div>
             </div>
         </div>
