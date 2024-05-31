@@ -124,7 +124,7 @@
     <section id="mainBanner">
         <div class="swiper" >
             <div class="swiper-wrapper">
-                <div class="swiper-slide  bg0">
+                <div class="swiper-slide bg0" data-btn= "평강탕 할인">
                     <div class="container h-100 d-flex aic"> <!-- 화면이 커졌다가 작아졌다 해도 같은 자리에 고정 -->
                         <h2 class="notoS f64 fc_white medium">
                         <p class="overh">  <!-- overflow : hidden -->
@@ -136,7 +136,7 @@
                         </h2>
                     </div>                    
                 </div>
-                <div class="swiper-slide  bg1">
+                <div class="swiper-slide bg1" data-btn= "버튼글자 태그에서 수정">
                     <div class="container h-100 d-flex aic">
                     <h2 class="notoS f64 fc_white medium">
                         <p class="overh">
@@ -148,7 +148,7 @@
                     </h2>
                     </div>  
                 </div>
-                <div class="swiper-slide  bg2">
+                <div class="swiper-slide bg2" data-btn= "dataset의 변수임">
                     <div class="container h-100 d-flex aic">
                     <h2 class="notoS f64 fc_white medium">
                         <p class="overh">
@@ -176,7 +176,7 @@
 <!-- Initialize Swiper -->
  <script>
     
-    const bannerText = ['평강한의원 후기','한약소개','예약하기'];
+    // const bannerText = ['평강한의원 후기','한약소개','예약하기'];
     const swiper_mainBanner = new Swiper("#mainBanner .swiper", {
         loop: true,
         autoplay: {
@@ -187,12 +187,15 @@
             el: "#mainBanner .swiper-pagination",
             clickable: true,
             renderBullet: function (index, className) {
-            //   return '<span class="' + className + '">' + (index + 1) + "</span>";
-            return `<span class= "${className}"> ${bannerText[index]} </span>`;
+                console.log("스와이퍼객체 :", this);
+                console.log("swiper-slide 모두이므로 데이터타입이 배열임 :", this.slides);
+                console.log("하나하나 접근하려면 배열 순번넣어서 접근하고 dataset확인 :", this.slides[index].dataset);
+                console.log(this.slides[index].dataset.btn);
+                return `<span class="${className}">${this.slides[index].dataset.btn}</span>`;
             },
         },
     });
- 
+
  </script>
 </body>
 
